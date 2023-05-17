@@ -1,7 +1,5 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-// import { Logo } from "../assets/Images/Playful Delights.png";
-
 const Header = () => {
   return (
     <div className="my-container">
@@ -38,6 +36,16 @@ const Header = () => {
                   Home
                 </NavLink>
               </li>
+              <li>
+                <NavLink
+                  to="/allToys"
+                  className={({ isActive }) =>
+                    isActive ? "active" : "default"
+                  }
+                >
+                  All Toys
+                </NavLink>
+              </li>
               <li tabIndex={0}>
                 <NavLink
                   to="/blogs"
@@ -61,9 +69,12 @@ const Header = () => {
             </ul>
           </div>
           <Link to="/" className="btn btn-ghost normal-case text-xl">
-            {" "}
-            {/* <Logo className="mx-4" /> */}
-            Kitchen Diaries{" "}
+            <img
+              src="../assets/Images/Playful Delights.png"
+              alt=""
+              className="w-12 h-12 mr-6 rounded-full"
+            />
+            Playful Delights{" "}
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -74,6 +85,14 @@ const Header = () => {
                 className={({ isActive }) => (isActive ? "active" : "default")}
               >
                 Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/allToys"
+                className={({ isActive }) => (isActive ? "active" : "default")}
+              >
+                All Toys
               </NavLink>
             </li>
             <li tabIndex={0}>
@@ -94,7 +113,7 @@ const Header = () => {
             </li>
           </ul>
         </div>
-        <div className="navbar-end flex sm:flex-col md:flex-row">
+        <div className="navbar-end">
           <NavLink to="/login">
             <button className="btn-outlined">Log In</button>
           </NavLink>
