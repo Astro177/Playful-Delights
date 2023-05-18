@@ -14,6 +14,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -24,12 +25,12 @@ export const router = createBrowserRouter([
         element: <AllToys />,
       },
       {
-        path:"/addToy",
-        element:<AddToy/>
+        path: "/addToy",
+        element: <AddToy />,
       },
       {
-        path:"/myToys",
-        element:<MyToys/>
+        path: "/myToys",
+        element: <MyToys />,
       },
       {
         path: "/blogs",

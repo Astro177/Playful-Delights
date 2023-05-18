@@ -1,9 +1,11 @@
 import React, { useContext, useRef, useState } from "react";
-import { TbBrandGithub, TbBrandGoogle, TbEye } from "react-icons/tb";
+import { TbBrandGoogle} from "react-icons/tb";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
+import Lottie from "react-lottie";
+import login from "../files/Animations/login.json"
 
 const Login = () => {
   const auth = getAuth(app);
@@ -47,65 +49,78 @@ const Login = () => {
         console.log(err.message);
       });
   };
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: login,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
 
   return (
-    <div className="text-center">
-      <h1 className="text-5xl font-semibold text-color mb-8">
-        Login to your account
-      </h1>
-      <p>Login using social networks</p>
-      <div className="flex justify-center mt-4 mb-2">
-        <button
-          className="text-4xl text-purple-700 p-2 bg-white rounded-xl"
-          onClick={handleGoogleSignIn}
-        >
-          {" "}
-          <TbBrandGoogle />
-        </button>
+    <div className="md:flex justify-center items-center gap-8">
+      <div>
+      <Lottie options={defaultOptions} height={600} width={400} />
       </div>
-      <p>Or</p>
-      <form onSubmit={handleSignIn}>
-        <div className="display: inline-block mt-2">
-          <input
-            type="email"
-            placeholder="Email"
-            name="email"
-            ref={emailRef}
-            required
-            className="input input-bordered input-primary w-full max-w-xs mb-6"
-          />
-          <input
-            type={showPassword ? "text" : "password"}
-            placeholder="Password"
-            name="password"
-            required
-            className="input input-bordered input-primary w-full max-w-xs"
-          />
-        </div>
-        <p className="text-red-800">{error}</p>
-        <p className="mt-4 cursor-pointer hover:underline decoration-1">
+      <div className="text-center">
+        <h1 className="text-5xl font-semibold text-color mb-8">
+          Login to your account
+        </h1>
+        <p>Login using social networks</p>
+        <div className="flex justify-center mt-4 mb-2">
           <button
-            className="btn rounded-3xl"
-            onClick={() => setShowPassword(!showPassword)}
+            className="text-4xl text-purple-700 p-2 bg-white rounded-xl"
+            onClick={handleGoogleSignIn}
           >
-            {!showPassword ? "Show Password" : "Hide password"}
+            {" "}
+            <TbBrandGoogle />
           </button>
-          <br />
-          <span onClick={handleResetPassword}>Forgot password?</span>
-        </p>
-        <p className="mb-4">
-          <span className="text-2xl text-color">New here?</span> Sign up and
-          discover our great amount of new recipes{" "}
-          <Link
-            to="/register"
-            className="text-xl hover:underline decoration-1 text-sky-500"
-          >
-            Sign Up
-          </Link>
-        </p>
+        </div>
+        <p>Or</p>
+        <form onSubmit={handleSignIn}>
+          <div className="display: inline-block mt-2">
+            <input
+              type="email"
+              placeholder="Email"
+              name="email"
+              ref={emailRef}
+              required
+              className="input input-bordered input-primary w-full max-w-xs mb-6"
+            />
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              name="password"
+              required
+              className="input input-bordered input-primary w-full max-w-xs"
+            />
+          </div>
+          <p className="text-red-800">{error}</p>
+          <p className="mt-4 cursor-pointer hover:underline decoration-1">
+            <button
+              className="btn rounded-3xl"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {!showPassword ? "Show Password" : "Hide password"}
+            </button>
+            <br />
+            <span onClick={handleResetPassword}>Forgot password?</span>
+          </p>
+          <p className="mb-4">
+            <span className="text-2xl text-color">New here?</span> Sign up and
+            discover our great amount of new recipes{" "}
+            <Link
+              to="/register"
+              className="text-xl hover:underline decoration-1 text-sky-500"
+            >
+              Sign Up
+            </Link>
+          </p>
 
-        <button className="btn-primary">Sign In</button>
-      </form>
+          <button className="btn-primary">Sign In</button>
+        </form>
+      </div>
     </div>
   );
 };
