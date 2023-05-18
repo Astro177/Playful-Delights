@@ -54,24 +54,14 @@ const Login = () => {
         Login to your account
       </h1>
       <p>Login using social networks</p>
-      <div className="flex justify-center items- gap-8 mt-4 mb-2">
-        <div>
-          <button
-            className="text-4xl p-2 bg-slate-800 rounded-full"
-            onClick={handleGoogleSignIn}
-          >
-            {" "}
-            <TbBrandGoogle />{" "}
-          </button>
-        </div>
-        <div>
-          <button
-            className="text-4xl p-2 bg-slate-800 rounded-full"
-            onClick={handleGitHubSignIn}
-          >
-            <TbBrandGithub />
-          </button>
-        </div>
+      <div className="flex justify-center mt-4 mb-2">
+        <button
+          className="text-4xl text-purple-700 p-2 bg-white rounded-xl"
+          onClick={handleGoogleSignIn}
+        >
+          {" "}
+          <TbBrandGoogle />
+        </button>
       </div>
       <p>Or</p>
       <form onSubmit={handleSignIn}>

@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
-import logo from "../files/Images/Playful_Delights.png"
+import logo from "../files/Images/Playful_Delights.png";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
   return (
     <div className="my-container">
       <div className="navbar bg-base-100">
@@ -48,6 +57,30 @@ const Header = () => {
                   All Toys
                 </NavLink>
               </li>
+              {user && (
+                <>
+                  <li>
+                    <NavLink
+                      to="/addToy"
+                      className={({ isActive }) =>
+                        isActive ? "active" : "default"
+                      }
+                    >
+                      Add Toy
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/myToys"
+                      className={({ isActive }) =>
+                        isActive ? "active" : "default"
+                      }
+                    >
+                      My Toys
+                    </NavLink>
+                  </li>
+                </>
+              )}
               <li tabIndex={0}>
                 <NavLink
                   to="/blogs"
@@ -71,11 +104,7 @@ const Header = () => {
             </ul>
           </div>
           <Link to="/" className="btn btn-ghost normal-case text-xl">
-            <img
-              src={logo}
-              alt=""
-              className="w-12 h-12 mr-6 rounded-full"
-            />
+            <img src={logo} alt="" className="w-12 h-12 mr-6 rounded-full" />
             Playful Delights{" "}
           </Link>
         </div>
@@ -97,6 +126,30 @@ const Header = () => {
                 All Toys
               </NavLink>
             </li>
+            {user && (
+              <>
+                <li>
+                  <NavLink
+                    to="/addToy"
+                    className={({ isActive }) =>
+                      isActive ? "active" : "default"
+                    }
+                  >
+                    Add Toy
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/myToys"
+                    className={({ isActive }) =>
+                      isActive ? "active" : "default"
+                    }
+                  >
+                    My Toys
+                  </NavLink>
+                </li>
+              </>
+            )}
             <li tabIndex={0}>
               <NavLink
                 to="/blogs"
@@ -116,15 +169,35 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <NavLink to="/login">
-            <button className="btn-outlined">Log In</button>
-          </NavLink>
-          <NavLink to="/register">
-            <button className="btn-outlined">Register</button>
-          </NavLink>
+          {user ? (
+            <div className="flex justify-center items-center">
+              {" "}
+              <div>
+                <button onClick={handleLogOut} className="btn-outlined">
+                  Sign Out
+                </button>
+              </div>
+              <div className="tooltip" data-tip={user.displayName}>
+                <img
+                  src={user.photoURL}
+                  className="w-12 h-12 rounded-full ml-4"
+                />
+              </div>
+            </div>
+          ) : (
+            <>
+              {" "}
+              <NavLink to="/login">
+                <button className="btn-outlined">Log In</button>
+              </NavLink>
+              <NavLink to="/register">
+                <button className="btn-outlined mr-6">Register</button>
+              </NavLink>
+            </>
+          )}
         </div>
       </div>
-      <hr className="mt-8"/>
+      <hr className="mt-8" />
     </div>
   );
 };
