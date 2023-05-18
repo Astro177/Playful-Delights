@@ -7,10 +7,10 @@
 }
 
 .btn-primary {
-  @apply font-medium  transition duration-200  shadow-md  md:mb-0  px-4 py-2 md:px-8 md:py-3 m-2 text-lg rounded-xl border-2  text-cyan-200 hover:bg-indigo-400 bg-gradient-to-r from-blue-800 via-blue-600 to-indigo-400 inline-block;
+  @apply font-medium  transition duration-200  shadow-md  md:mb-0  px-4 py-2 md:px-10 md:py-3 m-2 text-lg rounded-2xl border-2  text-black hover:bg-indigo-400 bg-gradient-to-r from-yellow-600 via-yellow-300 to-yellow-400 inline-block;
 }
 .btn-outlined {
-  @apply font-medium  transition duration-200  shadow-md  md:mb-0  px-4 py-2 md:px-8 md:py-3 m-2 text-sm rounded-xl  text-slate-500 hover:bg-cyan-400 hover:border-transparent border-2 border-cyan-200;
+  @apply font-medium  transition duration-200  shadow-md  md:mb-0  px-4 py-2 md:px-8 md:py-3 m-2 text-sm rounded-xl  text-black hover:bg-cyan-400 hover:border-transparent border-2 border-cyan-200;
 }
 .active {
   @apply font-medium tracking-wide text-cyan-200 transition-colors duration-200 bg-gradient-to-r  from-blue-800 via-blue-600 to-indigo-400 rounded-full;
@@ -20,7 +20,7 @@
   @apply font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-600;
 }
 .text-color {
-  @apply bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-400 text-transparent bg-clip-text;
+  @apply bg-gradient-to-r from-purple-400 via-indigo-400 to-pink-600 text-transparent bg-clip-text;
 }
 
 .error {

@@ -1,5 +1,7 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import logo from "../files/Images/Playful_Delights.png"
+
 const Header = () => {
   return (
     <div className="my-container">
@@ -70,7 +72,7 @@ const Header = () => {
           </div>
           <Link to="/" className="btn btn-ghost normal-case text-xl">
             <img
-              src="../assets/Images/Playful Delights.png"
+              src={logo}
               alt=""
               className="w-12 h-12 mr-6 rounded-full"
             />
@@ -118,10 +120,11 @@ const Header = () => {
             <button className="btn-outlined">Log In</button>
           </NavLink>
           <NavLink to="/register">
-            <button className="btn-outlined mr-6">Register</button>
+            <button className="btn-outlined">Register</button>
           </NavLink>
         </div>
       </div>
+      <hr className="mt-8"/>
     </div>
   );
 };

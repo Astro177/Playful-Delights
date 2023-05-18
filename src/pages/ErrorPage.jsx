@@ -1,7 +1,7 @@
 import React from 'react';
 import Lottie from 'react-lottie';
 import { Link, useRouteError } from 'react-router-dom';
-import {animation} from '../assets/Animations/error.json'
+import animation from '../files/Animations/error.json'
 const ErrorPage = () => {
   const { error, status } = useRouteError();
   return (
