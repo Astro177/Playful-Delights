@@ -1,8 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const AllToys = () => {
   const [toys, setToys] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:5000/alltoys")
@@ -10,11 +12,30 @@ const AllToys = () => {
       .then((data) => setToys(data));
   }, []);
 
+  const handleSearch = () => {
+    fetch(`http://localhost:5000/getToysByText/${searchText}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setToys(data);
+      });
+  };
+
   return (
     <div className="my-container">
       <p className="text-5xl text-center font-bold text-color mb-6">
         This is all the toys our collection contains
       </p>
+      <div className="flex justify-center mt-8 mb-6">
+        {" "}
+        <input
+          onChange={(e) => setSearchText(e.target.value)}
+          onKeyUp={handleSearch}
+          type="text"
+          placeholder="Search here"
+          className="input input-bordered input-primary w-full max-w-xs text-center"
+        />
+      </div>
       <div className="overflow-none">
         <table className="table table-zebra w-full text-center">
           <thead>
