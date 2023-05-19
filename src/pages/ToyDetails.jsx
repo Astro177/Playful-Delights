@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
+import { useLoaderData } from "react-router-dom";
 
 const ToyDetails = () => {
-    return (
-        <div>
-            this is details page
-        </div>
-    );
+  const { toy } = useLoaderData();
+  console.log(toy);
+
+  return <div>this is details page</div>;
 };
 
 export default ToyDetails;

@@ -35,7 +35,7 @@ const AllToys = () => {
                 <td>{toy.toyCategory}</td>
                 <td>{toy.price} $</td>
                 <td>{toy.availableQuantity} pcs</td>
-                <Link to={`toyDetails/${toy._id}`}>
+                <Link to={`/toyDetails/${toy._id}`}>
                   {" "}
                   <td>
                     <button className="btn-outlined">View Details</button>

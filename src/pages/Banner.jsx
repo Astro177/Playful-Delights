@@ -13,7 +13,7 @@ const Banner = () => {
   };
   return (
     <div className="my-container md:flex justify-center items-center gap-4">
-      <div className="md:flex md:w-3/4 bg-gradient-to-r  from-cyan-400 via-indigo-300 to-cyan-400 text-center p-12 rounded-lg mb-4">
+      <div className="lg:flex md:w-3/4 bg-gradient-to-r  from-cyan-400 via-indigo-300 to-cyan-400 text-center p-12 rounded-lg mb-4">
         <div>
           <p className="text-7xl font-extrabold text-white">Playful Delights</p>
           <p className="text-3xl font-semibold mt-4 mb-4 text-slate-700">

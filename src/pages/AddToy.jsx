@@ -1,7 +1,9 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/no-unknown-property */
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddToy = () => {
   const { user } = useContext(AuthContext);
@@ -17,8 +19,10 @@ const AddToy = () => {
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
+        if (result.insertedId) {
+          Swal.fire("Success!", "You added the Toy!", "success");
+        }
       });
-    console.log(data);
   };
 
   return (
@@ -69,7 +73,10 @@ const AddToy = () => {
           {...register("description", { required: true })}
         />
 
-        <select className="h-10 font-semibold" {...register("category")}>
+        <select
+          className="h-10 font-semibold"
+          {...register("toyCategory")}
+        >
           <option>Choose a Category</option>
           <option value="Marvel">Marvel</option>
           <option value="Star">Star</option>
