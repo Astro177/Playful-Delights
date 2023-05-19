@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const AllToys = () => {
-  const [toys, setToys] = useState({});
+  const [toys, setToys] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:5000/alltoys")
