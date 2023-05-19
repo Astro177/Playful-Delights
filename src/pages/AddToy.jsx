@@ -6,12 +6,21 @@ import { AuthContext } from "../provider/AuthProvider";
 const AddToy = () => {
   const { user } = useContext(AuthContext);
 
-  const {
-    register,
-    handleSubmit,
-  } = useForm();
+  const { register, handleSubmit } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    fetch("http://localhost:5000/addToy", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+      });
+    console.log(data);
+  };
+
   return (
     <div className="my-container">
       <form
@@ -22,6 +31,11 @@ const AddToy = () => {
           className="h-10 rounded-lg input-bordered input-accent p-6"
           placeholder="Toy Name"
           {...register("toyName", { required: true })}
+        />
+        <input
+          className="h-10 rounded-lg input-bordered input-accent p-6"
+          placeholder="Picture URL"
+          {...register("toyPictureUrl", { required: true })}
         />
 
         <input
