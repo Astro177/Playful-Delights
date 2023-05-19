@@ -1,16 +1,15 @@
 import React, { useContext, useRef, useState } from "react";
-import { TbBrandGoogle} from "react-icons/tb";
+import { TbBrandGoogle } from "react-icons/tb";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
 import Lottie from "react-lottie";
-import login from "../files/Animations/login.json"
+import login from "../files/Animations/login.json";
 
 const Login = () => {
   const auth = getAuth(app);
-  const { handleGoogleSignIn, handleGitHubSignIn, signIn } =
-    useContext(AuthContext);
+  const { handleGoogleSignIn, signIn } = useContext(AuthContext);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -61,7 +60,7 @@ const Login = () => {
   return (
     <div className="md:flex justify-center items-center gap-8">
       <div>
-      <Lottie options={defaultOptions} height={600} width={400} />
+        <Lottie options={defaultOptions} height={600} width={400} />
       </div>
       <div className="text-center">
         <h1 className="text-5xl font-semibold text-color mb-8">
