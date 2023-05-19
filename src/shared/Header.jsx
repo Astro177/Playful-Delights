@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../files/Images/Playful_Delights.png";
 import { AuthContext } from "../provider/AuthProvider";
+import ThemeChange from "../pages/ThemeChange";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -195,6 +196,9 @@ const Header = () => {
               </NavLink>
             </>
           )}
+        </div>
+        <div className="ml-4 flex justify-center items-center">
+          <ThemeChange />
         </div>
       </div>
       <hr className="mt-8" />
