@@ -2,17 +2,35 @@
 /* eslint-disable react/jsx-no-undef */
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
-import { Link } from "react-router-dom";
-
+import UpdateToy from "./UpdateToy";
+import Swal from "sweetalert2";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [ownToys, setOwnToys] = useState([]);
+  const [control, setControl] = useState(false);
+
   useEffect(() => {
     fetch(`http://localhost:5000/myToys/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setOwnToys(data));
-  }, [user]);
+  }, [user, control]);
+
+  const handleToyUpdate = (data) => {
+    fetch(`http://localhost:5000/updatedToy/${data._id}`, {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.modifiedCount > 0) {
+          setControl(!control);
+          Swal.fire("Success!", "You updated the Toy!", "success");
+        }
+        console.log(result);
+      });
+  };
   return (
     <div className="my-container">
       <p className="text-5xl text-center font-bold text-color mb-6">
@@ -39,16 +57,13 @@ const MyToys = () => {
                 <td>{ownToy.toyCategory}</td>
                 <td>{ownToy.price} $</td>
                 <td>{ownToy.availableQuantity} pcs</td>
-                <Link to={`/toyDetails/}`}>
-                  {" "}
-                  <td>
-                    <button className="btn-outlined">Update</button>
-                  </td>
-                </Link>
                 <td>
-                
-                    <button className="btn-outlined">Delete</button>
-                  </td>
+                  <label htmlFor="my-modal-3" className="btn-outlined">
+                    Update
+                  </label>
+                  <label className="btn-outlined">Delete</label>
+                </td>
+                <UpdateToy ownToy={ownToy} handleToyUpdate={handleToyUpdate} />
               </tr>
             </tbody>
           ))}
