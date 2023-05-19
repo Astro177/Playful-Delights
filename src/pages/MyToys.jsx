@@ -31,6 +31,34 @@ const MyToys = () => {
         console.log(result);
       });
   };
+
+  const handleDelete = (id) => {
+    fetch(`http://localhost:5000/remove/${id}`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result?.deletedCount > 0) {
+          Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            }
+            setControl(!control);
+          });
+        }
+        console.log(result);
+      });
+  };
+
   return (
     <div className="my-container">
       <p className="text-5xl text-center font-bold text-color mb-6">
@@ -50,7 +78,7 @@ const MyToys = () => {
             </tr>
           </thead>
           {ownToys?.map((ownToy, index) => (
-            <tbody key={ownToys._id}>
+            <tbody key={ownToy._id}>
               <tr className="hover">
                 <th>{index + 1}.</th>
                 <td>{ownToy.toyName}</td>
@@ -61,7 +89,12 @@ const MyToys = () => {
                   <label htmlFor="my-modal-3" className="btn-outlined">
                     Update
                   </label>
-                  <label className="btn-outlined">Delete</label>
+                  <label
+                    className="btn-outlined"
+                    onClick={() => handleDelete(ownToy._id)}
+                  >
+                    Delete
+                  </label>
                 </td>
                 <UpdateToy ownToy={ownToy} handleToyUpdate={handleToyUpdate} />
               </tr>
