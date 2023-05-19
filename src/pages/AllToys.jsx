@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-extra-semi */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";

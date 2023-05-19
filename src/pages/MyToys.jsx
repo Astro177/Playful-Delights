@@ -27,8 +27,9 @@ const MyToys = () => {
         if (result.modifiedCount > 0) {
           setControl(!control);
           Swal.fire("Success!", "You updated the Toy!", "success");
+        }else{
+            alert("Please change something to update data")
         }
-        console.log(result);
       });
   };
 

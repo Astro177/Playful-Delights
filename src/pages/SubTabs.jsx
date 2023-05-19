@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import CategoryCard from "./CategoryCard";
 
 const SubTabs = () => {
+  const [toys, setToys] = useState([]);
+  const [activeTab, setActiveTab] = useState("star");
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/allToys/${activeTab}`)
+      .then((res) => res.json())
+      .then((result) => {
+        setToys(result);
+      });
+  }, [activeTab]);
+  const handleSubCategory = (tabName) => {
+    setActiveTab(tabName);
+  };
   return (
     <div className="my-container">
       <div>
@@ -10,24 +24,32 @@ const SubTabs = () => {
           You can choose from our vast category
         </p>
       </div>
-      <div className="text-center">
-        <Tabs>
-          <TabList className="text-2xl font-bold mb-4">
-            <Tab>Marvel</Tab>
-            <Tab>Star Wars</Tab>
-            <Tab>Transformers</Tab>
-          </TabList>
-          <hr className="border-purple-300 mb-4" />
-          <TabPanel>
-            <h2>Marvel toys</h2>
-          </TabPanel>
-          <TabPanel>
-            <h2>star wars toys</h2>
-          </TabPanel>
-          <TabPanel>
-            <h2>transformers toys</h2>
-          </TabPanel>
-        </Tabs>
+
+      <div className="flex gap-8 justify-center items-center mb-6 cursor-pointer font-semibold text-xl">
+        <div
+          className={activeTab == "marvel" ? "btn-primary" : ""}
+          onClick={() => handleSubCategory("marvel")}
+        >
+          Marvel
+        </div>
+        <div
+          className={activeTab == "star" ? "btn-primary" : ""}
+          onClick={() => handleSubCategory("star")}
+        >
+          Star Wars
+        </div>
+        <div
+          className={activeTab == "transformers" ? "btn-primary " : ""}
+          onClick={() => handleSubCategory("transformers")}
+        >
+          Transformers
+        </div>
+      </div>
+      <hr className="border-purple-300 mb-8" />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center gap-8 my-container">
+        {toys?.slice(1).map((toy) => (
+          <CategoryCard key={toy._id} toy={toy}></CategoryCard>
+        ))}
       </div>
     </div>
   );
