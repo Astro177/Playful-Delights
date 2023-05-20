@@ -8,7 +8,7 @@ const SubTabs = () => {
   const [activeTab, setActiveTab] = useState("star");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/allToys/${activeTab}`)
+    fetch(`https://assignment-11-server-astro177.vercel.app/allToys/${activeTab}`)
       .then((res) => res.json())
       .then((result) => {
         setToys(result);

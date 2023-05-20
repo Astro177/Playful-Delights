@@ -4,20 +4,22 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import UpdateToy from "./UpdateToy";
 import Swal from "sweetalert2";
+import useTitle from "../hooks/useTitle";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [ownToys, setOwnToys] = useState([]);
   const [control, setControl] = useState(false);
+  useTitle("My Toys")
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myToys/${user?.email}`)
+    fetch(`https://assignment-11-server-astro177.vercel.app/myToys/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setOwnToys(data));
   }, [user, control]);
 
   const handleToyUpdate = (data) => {
-    fetch(`http://localhost:5000/updatedToy/${data._id}`, {
+    fetch(`https://assignment-11-server-astro177.vercel.app/updatedToy/${data._id}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),
@@ -34,7 +36,7 @@ const MyToys = () => {
   };
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/remove/${id}`, {
+    fetch(`https://assignment-11-server-astro177.vercel.app/remove/${id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
     })
