@@ -25,10 +25,15 @@ const AddToy = () => {
         }
       });
   };
-  useTitle("Add Toy")
+  useTitle("Add Toy");
 
   return (
-    <div className="my-container">
+    <div
+      className="my-container"
+      data-aos="fade-up"
+      data-aos-anchor-placement="top-bottom"
+      data-aos-duration="1000"
+    >
       <form
         className="grid grid-cols-2 gap-12 justify-center items-center"
         onSubmit={handleSubmit(onSubmit)}
@@ -75,10 +80,7 @@ const AddToy = () => {
           {...register("description", { required: true })}
         />
 
-        <select
-          className="h-10 font-semibold"
-          {...register("toyCategory")}
-        >
+        <select className="h-10 font-semibold" {...register("toyCategory")}>
           <option>Choose a Category</option>
           <option value="Marvel">Marvel</option>
           <option value="Star">Star</option>

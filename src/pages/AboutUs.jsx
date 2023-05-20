@@ -4,7 +4,12 @@ import useTitle from "../hooks/useTitle";
 const AboutUs = () => {
   useTitle("About Us");
   return (
-    <div className="my-container text-center mt-8">
+    <div
+      className="my-container text-center mt-8"
+      data-aos="fade-up"
+      data-aos-anchor-placement="top-bottom"
+      data-aos-duration="1000"
+    >
       <p className="text-color text-5xl font-bold m-12">‘Playful Delights’</p>
       <p className="font-semibold text-xl mb-12">
         A two-teeth grin of somewhat one or a no-teeth grin of an old one grin
@@ -26,15 +31,15 @@ const AboutUs = () => {
       <p className="font-semibold text-xl mb-12">
         Being a virtual ‘one-stop-shop’ of toys, we are a host to an astounding
         accumulation of unique toy brands. Our ‘sweeping,’ comprehensive range
-        is certain to overpower and energize you! Top-notch items never
-        anyplace costs wrapped with bunches of adoration is the thing that you
-        will arrive at. As your actual sidekick, we will dependably be there
-        with you through the procedure of what we call ‘topping’ (toy shopping).
-        Gifting guides, what is drifting, toys know-how, and what is useful for
-        your youngster’s advancement; we’ll let you know everything! From the
-        time you hit our site to the time you unwrap our ‘delight toy’ allocate,
-        be astonished at each progression in transit. To add to your happiness,
-        we likewise have a group of help administrators who are dependably on a
+        is certain to overpower and energize you! Top-notch items never anyplace
+        costs wrapped with bunches of adoration is the thing that you will
+        arrive at. As your actual sidekick, we will dependably be there with you
+        through the procedure of what we call ‘topping’ (toy shopping). Gifting
+        guides, what is drifting, toys know-how, and what is useful for your
+        youngster’s advancement; we’ll let you know everything! From the time
+        you hit our site to the time you unwrap our ‘delight toy’ allocate, be
+        astonished at each progression in transit. To add to your happiness, we
+        likewise have a group of help administrators who are dependably on a
         post for a chance to encourage our clients and intensify their
         fulfillment. To put it plainly, we give careful consideration to
         everything about offering a wonderful and life-changing client

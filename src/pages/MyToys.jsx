@@ -61,7 +61,12 @@ const MyToys = () => {
   };
 
   return (
-    <div className="my-container">
+    <div
+      className="my-container"
+      data-aos="fade-up"
+      data-aos-anchor-placement="top-bottom"
+      data-aos-duration="1000"
+    >
       <p className="text-5xl text-center font-bold text-color mb-6">
         This is all the toys that you have added
       </p>

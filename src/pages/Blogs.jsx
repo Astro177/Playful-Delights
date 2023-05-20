@@ -4,7 +4,12 @@ import useTitle from "../hooks/useTitle";
 const Blogs = () => {
   useTitle("Blogs");
   return (
-    <div className="my-container">
+    <div
+      className="my-container"
+      data-aos="fade-up"
+      data-aos-anchor-placement="top-bottom"
+      data-aos-duration="1000"
+    >
       <div
         tabIndex={0}
         className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box mb-4"
