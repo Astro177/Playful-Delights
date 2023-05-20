@@ -7,14 +7,14 @@ import SecondSection from "../secondsection/SecondSection";
 import useTitle from "../hooks/useTitle";
 
 const Home = () => {
-  useTitle("Home")
+  useTitle("Home");
   return (
     <>
       <Banner />
       <Gallery />
       <SubTabs />
       <FirstSection />
-      <SecondSection/>
+      <SecondSection />
     </>
   );
 };
