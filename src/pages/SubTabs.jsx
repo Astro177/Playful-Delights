@@ -25,7 +25,7 @@ const SubTabs = () => {
         </p>
       </div>
 
-      <div className="flex gap-8 justify-center items-center mb-6 cursor-pointer font-semibold text-xl">
+      <div className="grid grid-cols-1 md:grid-cols-3 text-center gap-8 justify-center items-center mb-6 cursor-pointer font-semibold text-xl">
         <div
           className={activeTab == "marvel" ? "btn-primary" : ""}
           onClick={() => handleSubCategory("marvel")}

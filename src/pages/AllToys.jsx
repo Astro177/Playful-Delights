@@ -44,6 +44,7 @@ const AllToys = () => {
             <tr>
               <th>No.</th>
               <th>Toy Name</th>
+              <th>Seller Name</th>
               <th>Sub-category</th>
               <th>Price</th>
               <th>Available Quantity</th>
@@ -55,6 +56,7 @@ const AllToys = () => {
               <tr className="hover">
                 <th>{index + 1}.</th>
                 <td>{toy.toyName}</td>
+                <td>{toy.sellerName}</td>
                 <td>{toy.toyCategory}</td>
                 <td>{toy.price} $</td>
                 <td>{toy.availableQuantity} pcs</td>

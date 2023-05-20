@@ -97,7 +97,7 @@ const Register = () => {
               className="input input-bordered input-primary w-full max-w-xs "
             />
           </div>
-          <p className="error">{error}</p>
+          <p className="text-error">{error}</p>
           <p className="mb-2">
             Already have an account?{" "}
             <Link

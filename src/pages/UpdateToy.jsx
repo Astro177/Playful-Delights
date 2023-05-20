@@ -13,11 +13,11 @@ const UpdateToy = (props) => {
 
   return (
     <>
-      <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+      <input type="checkbox" id={props.ownToy._id} className="modal-toggle" />
       <div className="modal">
         <div className="modal-box relative w-11/12 max-w-5xl">
           <label
-            htmlFor="my-modal-3"
+            htmlFor={props.ownToy._id}
             className="btn btn-sm btn-circle absolute right-2 top-2"
           >
             ✕

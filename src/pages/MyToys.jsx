@@ -9,6 +9,7 @@ const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [ownToys, setOwnToys] = useState([]);
   const [control, setControl] = useState(false);
+  const [updateModal, setUpdate] = useState(false);
 
   useEffect(() => {
     fetch(`http://localhost:5000/myToys/${user?.email}`)
@@ -27,8 +28,8 @@ const MyToys = () => {
         if (result.modifiedCount > 0) {
           setControl(!control);
           Swal.fire("Success!", "You updated the Toy!", "success");
-        }else{
-            alert("Please change something to update data")
+        } else {
+          alert("Please change something to update data");
         }
       });
   };
@@ -87,7 +88,7 @@ const MyToys = () => {
                 <td>{ownToy.price} $</td>
                 <td>{ownToy.availableQuantity} pcs</td>
                 <td>
-                  <label htmlFor="my-modal-3" className="btn-outlined">
+                  <label htmlFor={ownToy._id} className="btn-outlined">
                     Update
                   </label>
                   <label
