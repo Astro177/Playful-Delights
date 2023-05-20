@@ -9,7 +9,6 @@ const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [ownToys, setOwnToys] = useState([]);
   const [control, setControl] = useState(false);
-  const [updateModal, setUpdate] = useState(false);
 
   useEffect(() => {
     fetch(`http://localhost:5000/myToys/${user?.email}`)
