@@ -21,7 +21,7 @@ import img8 from "../files/Images/slider8.jpg";
 const FirstSection = () => {
   return (
     <div className="my-container">
-      <h1 className="text-6xl text-center font-bold text-color mt-8 mb-16">Some of our happy customers</h1>
+      <h1 className="text-5xl text-center font-bold text-color mt-8 mb-16">Some of our happy customers</h1>
       <Swiper
         effect={"coverflow"}
         grabCursor={true}

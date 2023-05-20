@@ -39,7 +39,11 @@ const AllToys = () => {
         />
       </div>
       <div className="overflow-none">
-        <table className="table table-zebra w-full text-center">
+        <table
+          className="table table-zebra w-full text-center"
+          data-aos="fade-up"
+          data-aos-anchor-placement="center-center"
+        >
           <thead>
             <tr>
               <th>No.</th>

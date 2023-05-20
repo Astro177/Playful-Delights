@@ -46,7 +46,7 @@ const SubTabs = () => {
         </div>
       </div>
       <hr className="border-purple-300 mb-8" />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center gap-8 my-container">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center gap-8 my-container" data-aos="fade-up">
         {toys?.slice(1).map((toy) => (
           <CategoryCard key={toy._id} toy={toy}></CategoryCard>
         ))}

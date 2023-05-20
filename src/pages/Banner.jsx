@@ -13,8 +13,8 @@ const Banner = () => {
   };
   return (
     <div className="my-container md:flex justify-center items-center gap-4">
-      <div className="lg:flex md:w-3/4 bg-gradient-to-r  from-cyan-400 via-indigo-300 to-cyan-400 text-center p-12 rounded-lg mb-4">
-        <div>
+      <div className="lg:flex md:w-3/4 bg-gradient-to-r  from-cyan-400 via-indigo-300 to-cyan-400 text-center p-12 rounded-lg mb-4" data-aos="fade-right">
+        <div data-aos="fade-right">
           <p className="text-7xl font-extrabold text-white">Playful Delights</p>
           <p className="text-3xl font-semibold mt-4 mb-4 text-slate-700">
             Exclusive Toy Place
@@ -25,12 +25,12 @@ const Banner = () => {
           </p>
           <button className="btn-primary">Explore Now</button>
         </div>
-        <div>
+        <div data-aos="fade-left">
           <Lottie options={defaultOptions} height={400} width={400} />
         </div>
       </div>
 
-      <div>
+      <div data-aos="fade-left">
         <div className="bg-gradient-to-r  from-orange-500 via-orange-100 to-orange-400 text-center p-12 rounded-lg mb-4">
           <p className="text-4xl font-extrabold text-white">Most Selling Figures</p>
           <button className="btn-outlined mt-2">See Now</button>
