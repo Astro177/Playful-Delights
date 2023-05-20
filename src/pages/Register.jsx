@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import registration from "../files/Animations/registration.json";
 import Lottie from "react-lottie";
+import useTitle from "../hooks/useTitle";
 
 const Register = () => {
   const { registerUser, updateUserDetails } = useContext(AuthContext);
@@ -16,6 +17,8 @@ const Register = () => {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
+
+  useTitle("Register")
 
   const navigate = useNavigate();
   const [error, setError] = useState("");

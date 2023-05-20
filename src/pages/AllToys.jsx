@@ -3,6 +3,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import useTitle from "../hooks/useTitle";
 
 const AllToys = () => {
   const [toys, setToys] = useState([]);
@@ -22,6 +23,7 @@ const AllToys = () => {
         setToys(data);
       });
   };
+  useTitle("All Toys")
 
   return (
     <div className="my-container">
@@ -38,11 +40,11 @@ const AllToys = () => {
           className="input input-bordered input-primary w-full max-w-xs text-center"
         />
       </div>
-      <div className="overflow-none">
+      <div className="overflow-x-auto">
         <table
           className="table table-zebra w-full text-center"
           data-aos="fade-up"
-          data-aos-anchor-placement="center-center"
+          data-aos-anchor-placement="top-bottom"  data-aos-duration="1000"
         >
           <thead>
             <tr>

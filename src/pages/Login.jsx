@@ -6,10 +6,12 @@ import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
 import Lottie from "react-lottie";
 import login from "../files/Animations/login.json";
+import useTitle from "../hooks/useTitle";
 
 const Login = () => {
   const auth = getAuth(app);
   const { handleGoogleSignIn, signIn } = useContext(AuthContext);
+  useTitle("Login")
 
   const navigate = useNavigate();
   const location = useLocation();

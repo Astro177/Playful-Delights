@@ -2,9 +2,12 @@ import React, { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
+import useTitle from "../hooks/useTitle";
 
 const ToyDetails = () => {
   const toy = useLoaderData();
+  useTitle("Toy-Details")
+
   return (
     <div className="my-container">
       <div className="card lg:card-side bg-base-100 shadow-xl p-6">
