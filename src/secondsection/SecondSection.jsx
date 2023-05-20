@@ -6,8 +6,8 @@ const SecondSection = () => {
       <p className="text-5xl text-color font-bold text-center mt-4 mb-6">
         Why Love Us
       </p>
-      <hr className="border-2 w-12 mx-auto mb-12" />
-      <div className="grid grid-cols-1 md:grid-cols-3 justify-center items-center gap-24">
+      <hr className="border-2 w-12 mx-auto mb-24" />
+      <div className="grid grid-cols-1 md:grid-cols-3 justify-center items-center gap-24 mb-24">
         <div>
           <p className="w-32 h-32 bg-purple-800 rounded-full text-center text-5xl font-bold text-slate-300 mb-6">1</p>
           <p className="text-lg font-semibold text-pink-500 mb-2">Variety of toys</p>
