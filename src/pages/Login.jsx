@@ -109,8 +109,7 @@ const Login = () => {
             <span onClick={handleResetPassword}>Forgot password?</span>
           </p>
           <p className="mb-4">
-            <span className="text-2xl text-color">New here?</span> Sign up and
-            discover our great amount of new recipes{" "}
+            <span className="text-2xl text-color">New here?</span> Sign up to get access to our vast category of toys{" "}
             <Link
               to="/register"
               className="text-xl hover:underline decoration-1 text-sky-500"

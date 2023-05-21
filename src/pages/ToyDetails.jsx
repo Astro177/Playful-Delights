@@ -23,7 +23,7 @@ const ToyDetails = () => {
           <h2 className="text-slate-400 mb-8">{toy.description}</h2>
           <p className="text-lg font-semibold">Seller Name: {toy.sellerName}</p>
           {toy.sellerEmail ? (
-            <p className="text-lg font-semibold">{toy.sellerEmail}</p>
+            <p className="text-lg font-semibold">Seller Email: {toy.sellerEmail}</p>
           ) : (
             ""
           )}

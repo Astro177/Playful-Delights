@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-extra-semi */
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useTitle from "../hooks/useTitle";
 
@@ -16,14 +16,16 @@ const AllToys = () => {
   }, []);
 
   const handleSearch = () => {
-    fetch(`https://assignment-11-server-iota-nine.vercel.app/getToysByText/${searchText}`)
+    fetch(
+      `https://assignment-11-server-iota-nine.vercel.app/getToysByText/${searchText}`
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         setToys(data);
       });
   };
-  useTitle("All Toys")
+  useTitle("All Toys");
 
   return (
     <div className="my-container">
@@ -44,7 +46,8 @@ const AllToys = () => {
         <table
           className="table table-zebra w-full text-center"
           data-aos="fade-up"
-          data-aos-anchor-placement="top-bottom"  data-aos-duration="1000"
+          data-aos-anchor-placement="top-bottom"
+          data-aos-duration="1000"
         >
           <thead>
             <tr>

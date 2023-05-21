@@ -14,6 +14,8 @@ const SubTabs = () => {
         setToys(result);
       });
   }, [activeTab]);
+
+  
   const handleSubCategory = (tabName) => {
     setActiveTab(tabName);
   };
