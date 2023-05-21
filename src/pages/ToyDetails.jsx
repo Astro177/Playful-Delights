@@ -6,7 +6,7 @@ import useTitle from "../hooks/useTitle";
 
 const ToyDetails = () => {
   const toy = useLoaderData();
-  useTitle("Toy-Details")
+  useTitle("Toy-Details");
 
   return (
     <div className="my-container">
@@ -22,9 +22,11 @@ const ToyDetails = () => {
           <h2 className="text-5xl text-color font-bold mb-6">{toy.toyName}</h2>
           <h2 className="text-slate-400 mb-8">{toy.description}</h2>
           <p className="text-lg font-semibold">Seller Name: {toy.sellerName}</p>
-          <p className="text-lg font-semibold">
-            Seller Email: {toy.sellerEmail}
-          </p>
+          {toy.sellerEmail ? (
+            <p className="text-lg font-semibold">{toy.sellerEmail}</p>
+          ) : (
+            ""
+          )}
           <p className="text-lg font-semibold">Category: {toy.toyCategory}</p>
           <p className="text-lg font-semibold">Price: {toy.price} $</p>
           <p className="text-lg font-semibold">

@@ -12,7 +12,7 @@ const AddToy = () => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    fetch("https://assignment-11-server-astro177.vercel.app/addToy", {
+    fetch("https://assignment-11-server-iota-nine.vercel.app/addToy", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -24,6 +24,7 @@ const AddToy = () => {
           Swal.fire("Success!", "You added the Toy!", "success");
         }
       });
+      console.log(data);
   };
   useTitle("Add Toy");
 

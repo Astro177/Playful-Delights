@@ -10,20 +10,57 @@ const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [ownToys, setOwnToys] = useState([]);
   const [control, setControl] = useState(false);
-  useTitle("My Toys")
+  const [highPriced, setHighPriced] = useState();
+  const [lowPriced, setLowPriced] = useState();
+  const [highLow, setHighLow] = useState(true);
+  useTitle("My Toys");
 
   useEffect(() => {
-    fetch(`https://assignment-11-server-astro177.vercel.app/myToys/${user?.email}`)
+    fetch(
+      `https://assignment-11-server-iota-nine.vercel.app/myToys/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setOwnToys(data));
   }, [user, control]);
 
+  useEffect(() => {
+    fetch(
+      `https://assignment-11-server-iota-nine.vercel.app/myToysHigh?sellerEmail=${user?.email}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setHighPriced(data);
+      });
+  }, [user]);
+
+  useEffect(() => {
+    fetch(
+      `https://assignment-11-server-iota-nine.vercel.app/myToysLow?sellerEmail=${user?.email}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setLowPriced(data);
+      });
+  }, [user]);
+
+  const handleHighPricedToy = () => {
+    setOwnToys(highPriced);
+    setHighLow(true);
+  };
+  const handleLowPricedToy = () => {
+    setOwnToys(lowPriced);
+    setHighLow(false);
+  };
+
   const handleToyUpdate = (data) => {
-    fetch(`https://assignment-11-server-astro177.vercel.app/updatedToy/${data._id}`, {
-      method: "PUT",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(data),
-    })
+    fetch(
+      `https://assignment-11-server-iota-nine.vercel.app/updatedToy/${data._id}`,
+      {
+        method: "PUT",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(data),
+      }
+    )
       .then((res) => res.json())
       .then((result) => {
         if (result.modifiedCount > 0) {
@@ -36,7 +73,7 @@ const MyToys = () => {
   };
 
   const handleDelete = (id) => {
-    fetch(`https://assignment-11-server-astro177.vercel.app/remove/${id}`, {
+    fetch(`https://assignment-11-server-iota-nine.vercel.app/remove/${id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
     })
@@ -58,7 +95,6 @@ const MyToys = () => {
             setControl(!control);
           });
         }
-        console.log(result);
       });
   };
 
@@ -72,7 +108,26 @@ const MyToys = () => {
       <p className="text-5xl text-center font-bold text-color mb-6">
         This is all the toys that you have added
       </p>
-      <div className="overflow-none">
+      <div className="flex gap-6 mt-16 mb-12 cursor-pointer">
+        <p
+          className={`hover:bg-cyan-800 p-4 rounded-2xl font-bold ${
+            highLow && "btn-primary"
+          }`}
+          onClick={handleHighPricedToy}
+        >
+          High Priced
+        </p>
+        <p
+          className={`hover:bg-cyan-800 p-4 rounded-2xl font-bold ${
+            !highLow && "btn-primary"
+          }`}
+          onClick={handleLowPricedToy}
+        >
+          Low Priced
+        </p>
+      </div>
+
+      <div className="overflow-x-auto">
         <table className="table table-zebra w-full text-center">
           <thead>
             <tr>

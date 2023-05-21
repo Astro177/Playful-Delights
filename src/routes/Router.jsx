@@ -34,7 +34,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://assignment-11-server-astro177.vercel.app/toys/${params.id}`),
+          fetch(`https://assignment-11-server-iota-nine.vercel.app/toys/${params.id}`),
       },
       {
         path: "/addToy",

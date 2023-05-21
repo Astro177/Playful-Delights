@@ -8,7 +8,7 @@ const SubTabs = () => {
   const [activeTab, setActiveTab] = useState("star");
 
   useEffect(() => {
-    fetch(`https://assignment-11-server-astro177.vercel.app/allToys/${activeTab}`)
+    fetch(`https://assignment-11-server-iota-nine.vercel.app/allToys/${activeTab}`)
       .then((res) => res.json())
       .then((result) => {
         setToys(result);
@@ -54,7 +54,7 @@ const SubTabs = () => {
       </div>
       <hr className="border-purple-300 mb-8" />
       <div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center gap-8 my-container"
+        className="overflow-x-hidden overflow-y-hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center gap-8 my-container"
         data-aos="fade-up"
       >
         {toys?.slice(1).map((toy) => (

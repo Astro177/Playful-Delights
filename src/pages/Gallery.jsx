@@ -15,7 +15,10 @@ const Gallery = () => {
           Our Most Popular Action Figures
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="zoom-in">
+      <div
+        className="overflow-x-hidden overflow-y-hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        data-aos="zoom-in"
+      >
         <img
           src={img1}
           className="border-4 border-blue-600 p-6 rounded-2xl hover:scale-110 hover:duration-300"
